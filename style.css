@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  left: 0;
+  right: 0;
+  top: 0;
+  position: fixed;
+  text-align: center;
+  color: white;
+  text-shadow: 5px 5px red;
+  background-color: #ee5ed1;
+  height: 80px;
+}
+#menu-btn {
+  margin-left: 1%;
+  border: none;
+  background-color: inherit;
+  position: fixed;
+  left: 2px;
+  top: 55px;
+  color: white;
+}
+#menu-btn:hover {
+  text-shadow: 2px 2px 3px black;
+}
+#menu-bar {
+  display: none;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  color: white;
+  background-color: #ee5ed1;
+  z-index: 1;
+}
+.menu-item {
+  display: block;
+  padding: 15px 15px;
+  border: blueviolet 1px solid;
+  border-bottom: none;
+  text-decoration: none;
+  color: black;
+}
+.menu-item:last-child {
+  border-bottom: blueviolet 1px solid;
+}
+
+#setting-btn:hover {
+  text-shadow: white 1px 1px 5px;
+}
+
+#playList-btn:hover {
+  text-shadow: white 1px 1px 5px;
+}
+#contactUs-btn:hover {
+  text-shadow: white 1px 1px 5px;
+}
+#aboutUs-btn:hover {
+  text-shadow: white 1px 1px 5px;
+}
+
+#main-content {
+  background-image: radial-gradient(
+    rgb(192, 62, 192),
+    rgb(62, 62, 190),
+    rgb(223, 50, 50)
+  );
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#musicName {
+  font-family: "Courier New";
+  font-weight: bold;
+}
+#pause-btn {
+  display: none;
+}
+
+#control-btns {
+  margin-top: 20px;
+}
+.control-btn {
+  margin: 5px 5vw;
+  color: red;
+}
+
+#prev-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+#backward-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+#play-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+#pause-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+#forward-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+#next-btn:hover {
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+#music-caption {
+  margin-top: 40px;
+  height: 350px;
+  border-radius: 50%;
+  border: red 2px groove;
+  animation: music-caption-rotate 30s infinite linear paused;
+}
+#background {
+  display: flex;
+  flex-direction: row;
+}
+#musicTimer,
+#volumeControl {
+  margin: 0px 5vw;
+}
+
+#volumeSlider {
+  -webkit-appearance: none;
+  background: blueviolet;
+  background-image: linear-gradient(#4fe74f, #e5fefe);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  height: 10px;
+}
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: rgb(233, 125, 125);
+}
+#volumeControl i {
+  color: rgb(99, 0, 0);
+}
+.animatedBars {
+  margin: 85px 50px;
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+}
+.animatedBar {
+  height: 100%;
+  width: 20px;
+  margin: 2px;
+  border-radius: 20px;
+  background-image: radial-gradient(red, yellow, blue);
+  background-repeat: no-repeat;
+  animation: animated-bar 2s infinite ease-in-out paused;
+}
+
+#duration-bar {
+  -webkit-appearance: none;
+  background-color: #ee5ed1;
+  background-image: radial-gradient(red, green);
+  background-repeat: no-repeat;
+  background-size: 0%;
+  height: 5px;
+  width: 100%;
+}
+#duration-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 15px;
+  border-radius: 0 50% 50% 0;
+  background-image: radial-gradient(#5dfd01, red);
+}
+
+@keyframes music-caption-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animated-bar {
+  to {
+    background-image: radial-gradient(blue, yellow, red);
+  }
+}
+
+@media (max-width: 768px) {
+  #background {
+    flex-direction: column;
+  }
+  .animatedBars {
+    flex-direction: column;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+  }
+  .animatedBar {
+    height: 10px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  #music-caption {
+    margin-top: 10px;
+    height: 45vh;
+  }
+}
+@media (max-width: 480px) {
+  .control-btn {
+    margin: auto 3vw;
+    font-size: 12px;
+  }
+  #animatedBars {
+    height: 30px;
+  }
+  #music-caption {
+    height: 150px;
+  }
+  #volumeSlider {
+    width: 20vw;
+    height: 5px;
+  }
+  #volumeSlider::-webkit-slider-thumb {
+    height: 8px;
+    width: 8px;
+  }
+  #volumeControl i {
+    font-size: 11px;
+  }
+  #duration,
+  #currentTime {
+    font-size: 10px;
+  }
+  #menu-bar {
+    width: 40%;
+  }
+}
