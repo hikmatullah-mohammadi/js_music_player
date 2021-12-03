@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- include fontawesome stylesheet -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fa fa-music"></i> Tik Music Player</h1>
+      <button id="menu-btn"><i class="fa fa-bars fa-2x"></i></button>
+    </header>
+
+    <div id="menu-bar">
+      <a href="#" class="menu-item" id="setting-btn"
+        ><i class="fa fa-cog">&ThickSpace;&ThickSpace;Setting</i></a
+      >
+      <a href="#" class="menu-item" id="playList-btn"
+        ><i class="fa fa-list">&ThickSpace;&ThickSpace;Play lists</i></a
+      >
+      <a
+        href="mailto:www.hikmatullah.m80@gmail.com"
+        class="menu-item"
+        id="contactUs-btn"
+        ><i class="fa fa-envelope">&ThickSpace;&ThickSpace;Contact us</i></a
+      >
+      <a href="#" class="menu-item" id="aboutUs-btn"
+        ><i class="fa fa-info">&ThickSpace;&ThickSpace;About us</i></a
+      >
+    </div>
+
+    <section id="main-content">
+      <section id="background">
+        <section class="animatedBars">
+          <div class="animatedBar"></div>
+          <div class="animatedBar"></div>
+          <div class="animatedBar"></div>
+        </section>
+        <img id="music-caption" src="images/bg-img.JPG" />
+        <section class="animatedBars">
+          <div class="animatedBar"></div>
+          <div class="animatedBar"></div>
+          <div class="animatedBar"></div>
+        </section>
+      </section>
+
+      <p id="musicName">...................</p>
+
+      <section style="display: flex; flex-direction: row">
+        <div id="musicTimer">
+          <span id="currentTime">00:00</span>
+          &ThickSpace;
+          <i class="fa fa-music" style="color: red"></i>
+          &ThickSpace;
+          <span id="duration">00:00</span>
+        </div>
+        <div id="volumeControl">
+          <i class="fa fa-volume-down"></i>
+          <input
+            type="range"
+            name="volume"
+            title="volume"
+            id="volumeSlider"
+            min="0"
+            max="1"
+            step="0.1"
+          />
+          <i class="fa fa-volume-up"></i>
+        </div>
+      </section>
+
+      <section id="control-section">
+        <!-- Music duration control -->
+        <input type="range" id="duration-bar" min="0" value="0" />
+
+        <div id="control-btns">
+          <a href="#" class="control-btn" title="Previous Song" id="prev-btn"
+            ><i class="fa fa-chevron-circle-left fa-2x"></i
+          ></a>
+          <a href="#" class="control-btn" title="<< 10s" id="backward-btn"
+            ><i class="fa fa-backward fa-2x"></i
+          ></a>
+          <a
+            href="#"
+            class="control-btn play-pause-btns"
+            title="Play"
+            id="play-btn"
+            ><i class="fa fa-play-circle fa-2x"></i
+          ></a>
+          <a
+            href="#"
+            class="control-btn play-pause-btns"
+            title="Pause"
+            id="pause-btn"
+            ><i class="fa fa-pause-circle fa-2x"></i
+          ></a>
+          <a href="#" class="control-btn" title=">> 10s" id="forward-btn"
+            ><i class="fa fa-forward fa-2x"></i
+          ></a>
+          <a href="#" class="control-btn" title="Next Song" id="next-btn"
+            ><i class="fa fa-chevron-circle-right fa-2x"></i
+          ></a>
+        </div>
+        <!-- <div id="setting-btns">Setting Buttons</div> -->
+      </section>
+      <!-- end control section-->
+    </section>
+    <!-- end main-content section-->
+
+    <audio id="currentMusic"></audio>
+
+    <!-- JavaScript code link -->
+    <script src="music-player.js"></script>
+  </body>
+</html>
