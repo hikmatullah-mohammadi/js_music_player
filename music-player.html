@@ -6,7 +6,10 @@
     <title>Music Player</title>
     <link rel="stylesheet" href="style.css" />
     <!-- include fontawesome stylesheet -->
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
     <!-- include jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   </head>
@@ -33,85 +36,85 @@
         ><i class="fa fa-info">&ThickSpace;&ThickSpace;About us</i></a
       >
     </div>
-
-    <section id="main-content">
-      <section id="background">
-        <section class="animatedBars">
-          <div class="animatedBar"></div>
-          <div class="animatedBar"></div>
-          <div class="animatedBar"></div>
+    <main>
+      <div id="main-content">
+        <section id="background">
+          <section class="animatedBars">
+            <div class="animatedBar"></div>
+            <div class="animatedBar"></div>
+            <div class="animatedBar"></div>
+          </section>
+          <img id="music-caption" src="images/bg-img.JPG" />
+          <section class="animatedBars">
+            <div class="animatedBar"></div>
+            <div class="animatedBar"></div>
+            <div class="animatedBar"></div>
+          </section>
         </section>
-        <img id="music-caption" src="images/bg-img.JPG" />
-        <section class="animatedBars">
-          <div class="animatedBar"></div>
-          <div class="animatedBar"></div>
-          <div class="animatedBar"></div>
+
+        <p id="musicName">...................</p>
+
+        <section style="display: flex; flex-direction: row">
+          <div id="musicTimer">
+            <span id="currentTime">00:00</span>
+            &ThickSpace;
+            <i class="fa fa-music" style="color: red"></i>
+            &ThickSpace;
+            <span id="duration">00:00</span>
+          </div>
+          <div id="volumeControl">
+            <i class="fa fa-volume-down"></i>
+            <input
+              type="range"
+              name="volume"
+              title="volume"
+              id="volumeSlider"
+              min="0"
+              max="1"
+              step="0.1"
+            />
+            <i class="fa fa-volume-up"></i>
+          </div>
         </section>
-      </section>
 
-      <p id="musicName">...................</p>
+        <section id="control-section">
+          <!-- Music duration control -->
+          <input type="range" id="duration-bar" min="0" value="0" />
 
-      <section style="display: flex; flex-direction: row">
-        <div id="musicTimer">
-          <span id="currentTime">00:00</span>
-          &ThickSpace;
-          <i class="fa fa-music" style="color: red"></i>
-          &ThickSpace;
-          <span id="duration">00:00</span>
-        </div>
-        <div id="volumeControl">
-          <i class="fa fa-volume-down"></i>
-          <input
-            type="range"
-            name="volume"
-            title="volume"
-            id="volumeSlider"
-            min="0"
-            max="1"
-            step="0.1"
-          />
-          <i class="fa fa-volume-up"></i>
-        </div>
-      </section>
-
-      <section id="control-section">
-        <!-- Music duration control -->
-        <input type="range" id="duration-bar" min="0" value="0" />
-
-        <div id="control-btns">
-          <a href="#" class="control-btn" title="Previous Song" id="prev-btn"
-            ><i class="fa fa-chevron-circle-left fa-2x"></i
-          ></a>
-          <a href="#" class="control-btn" title="<< 10s" id="backward-btn"
-            ><i class="fa fa-backward fa-2x"></i
-          ></a>
-          <a
-            href="#"
-            class="control-btn play-pause-btns"
-            title="Play"
-            id="play-btn"
-            ><i class="fa fa-play-circle fa-2x"></i
-          ></a>
-          <a
-            href="#"
-            class="control-btn play-pause-btns"
-            title="Pause"
-            id="pause-btn"
-            ><i class="fa fa-pause-circle fa-2x"></i
-          ></a>
-          <a href="#" class="control-btn" title=">> 10s" id="forward-btn"
-            ><i class="fa fa-forward fa-2x"></i
-          ></a>
-          <a href="#" class="control-btn" title="Next Song" id="next-btn"
-            ><i class="fa fa-chevron-circle-right fa-2x"></i
-          ></a>
-        </div>
-        <!-- <div id="setting-btns">Setting Buttons</div> -->
-      </section>
-      <!-- end control section-->
-    </section>
-    <!-- end main-content section-->
-
+          <div id="control-btns">
+            <a href="#" class="control-btn" title="Previous Song" id="prev-btn"
+              ><i class="fa fa-chevron-circle-left fa-2x"></i
+            ></a>
+            <a href="#" class="control-btn" title="<< 10s" id="backward-btn"
+              ><i class="fa fa-backward fa-2x"></i
+            ></a>
+            <a
+              href="#"
+              class="control-btn play-pause-btns"
+              title="Play"
+              id="play-btn"
+              ><i class="fa fa-play-circle fa-2x"></i
+            ></a>
+            <a
+              href="#"
+              class="control-btn play-pause-btns"
+              title="Pause"
+              id="pause-btn"
+              ><i class="fa fa-pause-circle fa-2x"></i
+            ></a>
+            <a href="#" class="control-btn" title=">> 10s" id="forward-btn"
+              ><i class="fa fa-forward fa-2x"></i
+            ></a>
+            <a href="#" class="control-btn" title="Next Song" id="next-btn"
+              ><i class="fa fa-chevron-circle-right fa-2x"></i
+            ></a>
+          </div>
+          <!-- <div id="setting-btns">Setting Buttons</div> -->
+        </section>
+        <!-- end control section-->
+      </div>
+      <!-- end main-content section-->
+    </main>
     <audio id="currentMusic"></audio>
 
     <!-- JavaScript code link -->
