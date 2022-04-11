@@ -22,7 +22,7 @@ var myMusics = [
   },
 ];
 
-$(document).ready(function () {
+$(document).ready( () => {
   var music_index = 0;
   const MUSIC_ELEM = document.getElementById("currentMusic");
   const DURATION_BAR = document.getElementById("duration-bar");
@@ -31,13 +31,20 @@ $(document).ready(function () {
   var music_duration;
   const ANIMATED_BARS = document.getElementsByClassName("animatedBar");
 
-  $("#menu-btn").click(function () {
+  $("#menu-btn").click(() => {
     $("#menu-bar").slideToggle("fast");
   });
 
-  function load_music(music_index) {
-    MUSIC_ELEM.setAttribute("src", myMusics[music_index].path);
+  const load_music = async music_index => {
+    await new Promise(async(resolve, reject) => {
+      try{
+        await MUSIC_ELEM.setAttribute("src", myMusics[music_index].path);
+        resolve()
+      } catch(err) {reject()}
+    })
     $("#musicName").text(myMusics[music_index].name);
+    
+    // format and set the music's duration
     MUSIC_ELEM.addEventListener("loadedmetadata", () => {
       music_duration = parseInt(MUSIC_ELEM.duration);
       DURATION_BAR.max = music_duration;
@@ -45,7 +52,8 @@ $(document).ready(function () {
     });
   }
 
-  function format_duration(sec) {
+  // called  to format the music duration: mm:ss
+  const format_duration = sec => {
     // minutes:seconds
     var sec = Math.floor(sec);
     if (sec >= 60) {
@@ -65,10 +73,10 @@ $(document).ready(function () {
     return "00:" + sec;
   }
 
-  function play_or_continue_the_music() {
+  const play_or_continue_the_music = async() => {
     // if no music is currently paused, play a new one
     if (!MUSIC_ELEM.getAttribute("src")) {
-      load_music(music_index);
+      await load_music(music_index);
     }
     MUSIC_ELEM.play();
     MUSIC_CAPTION.style.animationPlayState = "running";
@@ -76,9 +84,9 @@ $(document).ready(function () {
       ANIMATED_BARS[i].style.animationPlayState = "running";
     }
     $(".play-pause-btns").toggle();
-  } // end of play or continue
+  }
 
-  function pause_the_music() {
+  const pause_the_music = () => {
     MUSIC_CAPTION.style.animationPlayState = "paused";
     for (i = 0; i < 6; i++) {
       ANIMATED_BARS[i].style.animationPlayState = "paused";
@@ -87,15 +95,15 @@ $(document).ready(function () {
     $(".play-pause-btns").toggle();
   }
 
-  $("#play-btn").click(function () {
+  $("#play-btn").click(() => {
     play_or_continue_the_music();
   });
 
-  $("#pause-btn").click(function () {
+  $("#pause-btn").click(() => {
     pause_the_music();
   });
 
-  function reset_caption_animation() {
+  const reset_caption_animation = () => {
     MUSIC_CAPTION.style.animationName = "none"; // stop
     // restart
     setTimeout(() => {
@@ -104,13 +112,13 @@ $(document).ready(function () {
   }
 
   // go to next music
-  $("#next-btn").click(function () {
+  $("#next-btn").click(async() => {
     if (music_index == myMusics.length - 1) {
       alert("The current music is the last one in the list.");
       return;
     }
     music_index += 1;
-    load_music(music_index);
+    await load_music(music_index);
     MUSIC_ELEM.play();
     $("#pause-btn").show();
     $("#play-btn").hide();
@@ -121,13 +129,13 @@ $(document).ready(function () {
   });
 
   // go to previous music
-  $("#prev-btn").click(function () {
+  $("#prev-btn").click(async() => {
     if (music_index == 0) {
       alert("The current music is the first one in the list");
       return;
     }
     music_index -= 1;
-    load_music(music_index);
+    await load_music(music_index);
     MUSIC_ELEM.play();
 
     $("#pause-btn").show();
@@ -167,7 +175,7 @@ $(document).ready(function () {
     MUSIC_ELEM.currentTime = this.value;
   });
 
-  MUSIC_ELEM.addEventListener("ended", function () {
+  MUSIC_ELEM.addEventListener("ended", () => {
     reset_caption_animation();
     pause_the_music();
   });
