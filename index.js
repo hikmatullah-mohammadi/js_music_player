@@ -5,7 +5,7 @@
 // music list
 var myMusics = [
   {
-    path: "./musics/ForestWalk.mp3",
+    path: "/musics/ForestWalk.mp3",
     name: "ForestWalk",
   },
   {
