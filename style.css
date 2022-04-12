@@ -87,7 +87,7 @@ main {
   font-weight: bold;
 }
 #pause-btn {
-  /* display: none; */
+  display: none;
 }
 
 #control-btns {
