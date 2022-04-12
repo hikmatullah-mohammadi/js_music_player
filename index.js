@@ -5,12 +5,8 @@
 // music list
 var myMusics = [
   {
-    path: "/musics/ForestWalk.mp3",
+    path: "./musics/ForestWalk.mp3",
     name: "ForestWalk",
-  },
-  {
-    path: "./musics/Kevin_MacLeod_-_Canon_in_D_Major.mp3",
-    name: "Kevin_MacLeod_-_Canon_in_D_Major",
   },
   {
     path: "./musics/purrple-cat-lullaby.mp3",
