@@ -26,7 +26,7 @@ $(document).ready( () => {
   const CURRENT_TIME = document.getElementById("currentTime");
   var music_duration;
   const ANIMATED_BARS = document.getElementsByClassName("animatedBar");
-
+  $('#pause-btn').css('display','none')
   $("#menu-btn").click(() => {
     $("#menu-bar").slideToggle("fast");
   });
